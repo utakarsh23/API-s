@@ -17,4 +17,10 @@ public class JournalService {
         journalContent.setContent(content);
         return journalRepository.save(journalContent);
     }
+
+    public void deleteJournal(Long id) {
+        if(journalRepository.existsById(id)) {
+            journalRepository.deleteById(id);
+        }
+    }
 }

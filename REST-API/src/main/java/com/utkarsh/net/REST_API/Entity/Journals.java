@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "REST-API's")
 public class Journals {
 
-
     @Id
     private Long id;
     private String content;
