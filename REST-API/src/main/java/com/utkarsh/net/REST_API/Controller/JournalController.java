@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/journal")
 public class JournalController {
@@ -30,5 +33,11 @@ public class JournalController {
             return new ResponseEntity<>(true, HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/getById{id}")
+    public ResponseEntity<Journals> getJournalById(@PathVariable Long id) {
+        Journals byId = journalRepository.findJournalsById(id);
+        return new ResponseEntity<>(byId, HttpStatus.OK);
     }
 }

@@ -5,6 +5,8 @@ import com.utkarsh.net.REST_API.Repository.JournalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class JournalService {
 
@@ -22,5 +24,9 @@ public class JournalService {
         if(journalRepository.existsById(id)) {
             journalRepository.deleteById(id);
         }
+    }
+
+    public List<Journals> getAll() {
+        return journalRepository.findAll();
     }
 }

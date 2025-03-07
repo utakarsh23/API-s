@@ -11,4 +11,5 @@ public interface JournalRepository extends MongoRepository<Journals, Long> {
     List<Journals> searchById(Long id);
 
     Journals findJournalsById(Long id);
+
 }
